@@ -155,6 +155,7 @@ describe GettextI18nRailsJs::Parser::Javascript do
       end
     end
 
+    # FIXME: #41
     it "finds interpolated multi-line messages" do
       content = <<-'EOF'
         """ Parser should grab
