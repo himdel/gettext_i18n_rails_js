@@ -207,6 +207,54 @@ describe GettextI18nRailsJs::Parser::Javascript do
       end
     end
 
+    it "does not overescape quotes in single quote strings" do
+      content = <<-'EOF'
+        __('\"string"');
+      EOF
+
+      with_file content do |path|
+        expect(parser.parse(path, [])).to(
+          eq(
+            [
+              ["\"string\"", "#{path}:1"]
+            ]
+          )
+        )
+      end
+    end
+
+    it "does not overescape quotes in double quote strings" do
+      content = <<-'EOF'
+        __("\"string\"");
+      EOF
+
+      with_file content do |path|
+        expect(parser.parse(path, [])).to(
+          eq(
+            [
+              ["\"string\"", "#{path}:1"]
+            ]
+          )
+        )
+      end
+    end
+
+    it "does not overescape quotes in template strings" do
+      content = <<-'EOF'
+        __(`\"string"`);
+      EOF
+
+      with_file content do |path|
+        expect(parser.parse(path, [])).to(
+          eq(
+            [
+              ["\"string\"", "#{path}:1"]
+            ]
+          )
+        )
+      end
+    end
+
     it "does not capture a false positive" do
       content = <<-'EOF'
         bla = should_not_be_registered__("xxxx", "yyyy")
