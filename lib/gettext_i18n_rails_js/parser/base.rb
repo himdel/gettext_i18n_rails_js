@@ -90,6 +90,8 @@ module GettextI18nRailsJs
           .tr("\n", "\n")
           .tr("\t", "\t")
           .tr("\0", "\0")
+          .gsub("\\\"", "\"")
+          .gsub("\\\'", "\'")
       end
 
       def separator_for(value)
