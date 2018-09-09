@@ -199,8 +199,8 @@ describe GettextI18nRailsJs::Parser::Javascript do
         expect(parser.parse(path, [])).to(
           eq(
             [
-              ["hello \\\"dude\\\"", "#{path}:1"],
-              ["how is it \\'going\\' ", "#{path}:1"]
+              ["hello \"dude\"", "#{path}:1"],
+              ["how is it 'going' ", "#{path}:1"]
             ]
           )
         )
