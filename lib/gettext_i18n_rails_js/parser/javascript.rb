@@ -94,7 +94,7 @@ module GettextI18nRailsJs
             [a-zA-Z0-9_\.()]*?
           )
           \s*
-        /x
+        /xm
       end
     end
   end
