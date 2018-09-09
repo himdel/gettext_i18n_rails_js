@@ -37,6 +37,9 @@ module GettextI18nRailsJs
         [
           ".js",
           ".jsx",
+          ".mjs",
+          ".ts",
+          ".tsx",
           ".coffee"
         ].include? ::File.extname(file)
       end

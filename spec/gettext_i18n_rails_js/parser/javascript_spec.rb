@@ -33,6 +33,22 @@ describe GettextI18nRailsJs::Parser::Javascript do
       expect(parser.target?("foo/bar/xxx.js")).to be_truthy
     end
 
+    it "targets .mjs" do
+      expect(parser.target?("foo/bar/xxx.mjs")).to be_truthy
+    end
+
+    it "targets .jsx" do
+      expect(parser.target?("foo/bar/xxx.jsx")).to be_truthy
+    end
+
+    it "targets .ts" do
+      expect(parser.target?("foo/bar/xxx.ts")).to be_truthy
+    end
+
+    it "targets .tsx" do
+      expect(parser.target?("foo/bar/xxx.tsx")).to be_truthy
+    end
+
     it "targets .coffee" do
       expect(parser.target?("foo/bar/xxx.coffee")).to be_truthy
     end
